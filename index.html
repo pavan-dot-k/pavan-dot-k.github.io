@@ -1,193 +1,328 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pavan Kancharla | Portfolio</title>
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Favicon -->
-    <link rel="icon" href="https://avatars.githubusercontent.com/u/000000?v=4" />
-    <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      body {font-family: 'Inter', sans-serif;}
-    </style>
-    <!-- Theme toggle script -->
-    <script>
-      // Persisted theme in localStorage
-      if (
-        localStorage.theme === 'dark' ||
-        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-      function toggleTheme() {
-        const html = document.documentElement;
-        html.classList.toggle('dark');
-        localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
-      }
-    </script>
-  </head>
-  <body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
-    <!-- Navigation -->
-    <header class="sticky top-0 backdrop-blur bg-white/70 dark:bg-gray-900/70 z-50 shadow">
-      <div class="max-w-5xl mx-auto flex items-center justify-between p-4">
-        <h1 class="text-xl font-bold tracking-tight">Pavan Kancharla</h1>
-        <nav class="space-x-4 text-sm hidden md:block">
-          <a href="#about" class="hover:text-teal-500">About</a>
-          <a href="#skills" class="hover:text-teal-500">Skills</a>
-          <a href="#projects" class="hover:text-teal-500">Projects</a>
-          <a href="#experience" class="hover:text-teal-500">Experience</a>
-          <a href="#education" class="hover:text-teal-500">Education</a>
-          <a href="#contact" class="hover:text-teal-500">Contact</a>
-        </nav>
-        <button id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
-          <!-- Icon from lucide -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.364-5.364l.707.707M5.636 18.364l-.707.707M18.364 18.364l-.707-.707M5.636 5.636l-.707-.707M12 5a7 7 0 107 7 7 7 0 00-7-7z" />
-          </svg>
-        </button>
-      </div>
-    </header>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pavan Kancharla | Portfolio</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-NvKXADn6xY5+YlZC0mYBMQc8zqQjRohFioZVP9q4wHPR7Qy4g9JflrFqRxhVOfTs7+4zQ8nhsJOPpHfY6iUIfw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #0d1117;
+      --fg: #ffffff;
+      --accent1: #00c6ff;
+      --accent2: #0072ff;
+      --gradient: linear-gradient(135deg, var(--accent1) 0%, var(--accent2) 100%);
+    }
 
-    <!-- Hero -->
-    <section class="max-w-5xl mx-auto flex flex-col items-center text-center py-20 px-4">
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Hi, I'm <span class="text-teal-600 dark:text-teal-400">Pavan</span> 👋</h2>
-      <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl">
-        Backend Developer | Full‑Stack Enthusiast | Problem Solver<br>
-        Building performant cloud‑native services and intuitive web experiences.
-      </p>
-      <div class="mt-6 space-x-4">
-        <a href="https://www.linkedin.com/in/pavan-kancharla-4a79621ab/" class="inline-block px-6 py-2 rounded-lg border border-teal-600 text-teal-600 dark:border-teal-400 dark:text-teal-400 hover:bg-teal-600 hover:text-white dark:hover:bg-teal-400 dark:hover:text-gray-900 transition">LinkedIn</a>
-        <a href="https://github.com/pavan-kancharla" class="inline-block px-6 py-2 rounded-lg border border-gray-700 text-gray-700 dark:border-gray-300 dark:text-gray-300 hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition">GitHub</a>
-        <a href="mailto:kancharlapavan002@gmail.com" class="inline-block px-6 py-2 rounded-lg border border-gray-500 text-gray-500 dark:border-gray-400 dark:text-gray-400 hover:bg-gray-600 hover:text-white dark:hover:bg-gray-400 dark:hover:text-gray-900 transition">Email</a>
-      </div>
-    </section>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--fg);
+    }
 
-    <!-- About -->
-    <section id="about" class="bg-gray-50 dark:bg-gray-800 py-16">
-      <div class="max-w-5xl mx-auto px-4">
-        <h3 class="text-2xl font-bold mb-6">About Me</h3>
-        <p class="leading-relaxed text-gray-700 dark:text-gray-300">
-          I’m a backend developer at Cyberoi Systems with hands‑on experience building scalable AWS‑based services. Passionate about crafting clean, efficient code in Node.js & Python and solving challenging problems—both in the cloud and on coding platforms like LeetCode where I’ve solved 300+ problems. I love bringing full‑stack ideas to life, from intuitive UIs with modern JavaScript to robust data pipelines.
-        </p>
-      </div>
-    </section>
+    body {
+      background: var(--bg);
+      overflow-x: hidden;
+    }
 
-    <!-- Skills -->
-    <section id="skills" class="py-16">
-      <div class="max-w-5xl mx-auto px-4">
-        <h3 class="text-2xl font-bold mb-6">Technical Skills</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm">
-          <span class="px-2 py-1 bg-teal-100 text-teal-800 dark:bg-teal-800 dark:text-teal-100 rounded">C</span>
-          <span class="px-2 py-1 bg-teal-100 text-teal-800 dark:bg-teal-800 dark:text-teal-100 rounded">C++</span>
-          <span class="px-2 py-1 bg-teal-100 text-teal-800 dark:bg-teal-800 dark:text-teal-100 rounded">JavaScript</span>
-          <span class="px-2 py-1 bg-teal-100 text-teal-800 dark:bg-teal-800 dark:text-teal-100 rounded">Python</span>
-          <span class="px-2 py-1 bg-teal-100 text-teal-800 dark:bg-teal-800 dark:text-teal-100 rounded">SQL</span>
-          <span class="px-2 py-1 bg-teal-100 text-teal-800 dark:bg-teal-800 dark:text-teal-100 rounded">Node.js</span>
-          <span class="px-2 py-1 bg-teal-100 text-teal-800 dark:bg-teal-800 dark:text-teal-100 rounded">Express</span>
-          <span class="px-2 py-1 bg-teal-100 text-teal-800 dark:bg-teal-800 dark:text-teal-100 rounded">Flask</span>
-          <span class="px-2 py-1 bg-teal-100 text-teal-800 dark:bg-teal-800 dark:text-teal-100 rounded">MongoDB</span>
-          <span class="px-2 py-1 bg-teal-100 text-teal-800 dark:bg-teal-800 dark:text-teal-100 rounded">DynamoDB</span>
-          <span class="px-2 py-1 bg-teal-100 text-teal-800 dark:bg-teal-800 dark:text-teal-100 rounded">AWS Lambda</span>
-          <span class="px-2 py-1 bg-teal-100 text-teal-800 dark:bg-teal-800 dark:text-teal-100 rounded">SQS & API Gateway</span>
-        </div>
-      </div>
-    </section>
+    /* Decorative left gradient strip */
+    body::before {
+      content: "";
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 6px;
+      height: 100vh;
+      background: var(--gradient);
+      z-index: 9999;
+    }
 
-    <!-- Projects -->
-    <section id="projects" class="bg-gray-50 dark:bg-gray-800 py-16">
-      <div class="max-w-5xl mx-auto px-4">
-        <h3 class="text-2xl font-bold mb-6">Selected Projects</h3>
-        <div class="grid md:grid-cols-2 gap-6">
-          <!-- Project Card -->
-          <div class="bg-white dark:bg-gray-900 rounded-2xl shadow p-6 flex flex-col justify-between">
-            <div>
-              <h4 class="text-xl font-semibold mb-2">Rental Space Finder</h4>
-              <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 mb-4">A full‑stack platform to discover rental spaces, featuring image uploads, dynamic listings, and CRUD functionality built with Node.js, Express & MongoDB.</p>
-            </div>
-            <a href="https://github.com/pavan-kancharla/Rental-space-finder" class="mt-4 inline-flex items-center text-teal-600 dark:text-teal-400 hover:underline">View on GitHub →</a>
-          </div>
-          <!-- Project Card -->
-          <div class="bg-white dark:bg-gray-900 rounded-2xl shadow p-6 flex flex-col justify-between">
-            <div>
-              <h4 class="text-xl font-semibold mb-2">Summify – Abstractive Text Summarizer</h4>
-              <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 mb-4">Web app that generates concise summaries using a seq2seq LSTM model served by Flask. Achieved 0.89 accuracy on benchmark dataset.</p>
-            </div>
-            <a href="https://github.com/pavan-kancharla/Summify" class="mt-4 inline-flex items-center text-teal-600 dark:text-teal-400 hover:underline">View on GitHub →</a>
-          </div>
-          <!-- Project Card -->
-          <div class="bg-white dark:bg-gray-900 rounded-2xl shadow p-6 flex flex-col justify-between">
-            <div>
-              <h4 class="text-xl font-semibold mb-2">Face Authentication as OTP</h4>
-              <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 mb-4">Reimagining OTP verification with LBPH‑based face recognition. Built a Tkinter GUI that authenticates users with 75% confidence for secure app access.</p>
-            </div>
-            <a href="https://github.com/pavan-kancharla/face-recognition-as-authentication" class="mt-4 inline-flex items-center text-teal-600 dark:text-teal-400 hover:underline">View on GitHub →</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    /* Nav */
+    nav {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-    <!-- Experience -->
-    <section id="experience" class="py-16">
-      <div class="max-w-5xl mx-auto px-4">
-        <h3 class="text-2xl font-bold mb-6">Experience</h3>
-        <div class="space-y-6">
-          <div>
-            <h4 class="text-lg font-semibold">Backend Developer @ Cyberoi Systems <span class="text-sm text-gray-500 dark:text-gray-400">May 2022 – Present</span></h4>
-            <ul class="list-disc ml-5 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-              <li>Designed and deployed AWS Lambda services integrating DynamoDB & SQS, delivering near‑real‑time alerts for internal systems.</li>
-              <li>Enhanced Insmeal APIs 3× performance by optimizing Node.js/Express routes and fine‑tuning API Gateway integration.</li>
-              <li>Built and tested WebSocket endpoints for seamless 3rd‑party integrations, reducing latency by 33%.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
 
-    <!-- Education -->
-    <section id="education" class="bg-gray-50 dark:bg-gray-800 py-16">
-      <div class="max-w-5xl mx-auto px-4">
-        <h3 class="text-2xl font-bold mb-6">Education</h3>
-        <div class="space-y-4 text-sm">
-          <p><span class="font-semibold">B.Tech Electronics & Communication Engineering</span> — JNTUH University College of Engineering, Jagtial (June 2023) | GPA: 7.52</p>
-        </div>
-      </div>
-    </section>
+    .logo i {
+      font-size: 1.25rem;
+      color: var(--accent1);
+    }
 
-    <!-- Achievements -->
-    <section id="achievements" class="py-16">
-      <div class="max-w-5xl mx-auto px-4">
-        <h3 class="text-2xl font-bold mb-6">Achievements & Activities</h3>
-        <ul class="list-disc ml-5 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-          <li>Finalist – Microsoft Azure Developer Hackathon 2021.</li>
-          <li>300+ coding challenges solved across LeetCode & GeeksforGeeks.</li>
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      transition: opacity 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .cta-btn {
+      padding: 0.6rem 1.3rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 10px;
+      background: transparent;
+      border: 2px solid transparent;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
+      padding: 2px; /* border thickness */
+      background: var(--gradient);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Hero */
+    header {
+      padding: 5rem 1.5rem 7rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    header p {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      opacity: 0.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Section styling */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    section h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50%;
+      height: 3px;
+      background: var(--gradient);
+      border-radius: 999px;
+    }
+
+    /* Card grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #161b22;
+      padding: 1.5rem;
+      border-radius: 16px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 2px;
+      background: var(--gradient);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px rgba(0, 114, 255, 0.25);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      margin-bottom: 0.5rem;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+      list-style: none;
+    }
+
+    .skills-list li {
+      font-size: 0.85rem;
+      background: #161b22;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #272c33;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem 4rem;
+      opacity: 0.6;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#home" class="logo"><i class="fa-solid fa-arrow-up-right-from-square"></i> Pavan Kancharla</a>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="cta-btn" onclick="window.open('KancharlaPavan_Resume.pdf', '_blank')">Resume</button>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home">
+    <h1>Hi, I'm Pavan Kancharla</h1>
+    <p>Skilled Data Science graduate student with hands-on experience in machine learning, data pipelines, and cloud architecture.</p>
+    <div class="button-group">
+      <button class="cta-btn" onclick="window.open('https://github.com/pavan-kancharla', '_blank')"><i class="fa-brands fa-github"></i> GitHub</button>
+      <button class="cta-btn" onclick="window.open('https://linkedin.com/in/pavan-kancharla123', '_blank')"><i class="fa-brands fa-linkedin"></i> LinkedIn</button>
+    </div>
+  </header>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Advanced Traffic Flow Prediction System</h3>
+        <p>Developed neural network model on ASU's Sol supercomputer, processing 2.8M+ data points to achieve 0.044 RMSE in traffic prediction. Engineered GPU-accelerated prediction system with pyramid architecture, achieving 99.8% accuracy and 40% faster convergence using PyTorch.</p>
+        <button class="cta-btn" onclick="window.open('https://github.com/pavan-kancharla/traffic-flow-prediction', '_blank')">View Code</button>
+      </div>
+      <div class="card">
+        <h3>Cryptocurrency Price Prediction Model</h3>
+        <p>Published research on novel Sequential Attention Model (SAM-LSTM) architecture combining blockchain analytics and deep learning, achieving 86.94% prediction accuracy. Developed full-stack Flask application integrating multiple ML models (LSTM, XGBoost) with automated trading signals.</p>
+        <button class="cta-btn" onclick="window.open('https://github.com/pavan-kancharla/crypto-price-prediction', '_blank')">View Code</button>
+        <button class="cta-btn" onclick="window.open('https://ieeexplore.ieee.org/document/xxxxxxx', '_blank')">Research Article</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Data Joi Project - Development Engineer Intern @ legitbytes</h3>
+        <p><em>July 2023 – December 2023</em></p>
+        <ul style="margin-left: 1.2rem; font-size: 0.93rem; line-height: 1.45">
+          <li>Developed data query system using Langchain and ChatGPT API, reducing query response time by 60% and enabling natural language interactions with SQL databases.</li>
+          <li>Built automated data pipelines with AWS Lambda and R, streamlining data cleansing and embedding generation for efficient storage in PineconeDB.</li>
+          <li>Optimized ETL operations using AWS Glue for MySQL database integration, improving data processing efficiency by 40%.</li>
         </ul>
       </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="bg-teal-600 dark:bg-teal-700 text-white py-16">
-      <div class="max-w-5xl mx-auto px-4 text-center">
-        <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
-        <p class="mb-6 max-w-2xl mx-auto">Have an exciting project or opportunity? I’m open to collaborations and new challenges. Let’s connect and build something amazing together!</p>
-        <a href="mailto:kancharlapavan002@gmail.com" class="inline-block px-8 py-3 bg-white text-teal-700 font-medium rounded-lg hover:shadow-lg transition">Say Hello</a>
+      <div class="card">
+        <h3>Insmeal Project - Backend Development Intern</h3>
+        <p><em>May 2022 – December 2022</em></p>
+        <ul style="margin-left: 1.2rem; font-size: 0.93rem; line-height: 1.45">
+          <li>Improved API performance by 300% through implementation of Node.js and Express.js microservices architecture.</li>
+          <li>Developed and tested APIs and WebSockets for third-party integrations using AWS services.</li>
+          <li>Created and scaled Docker containers in AWS ECS, improving the application's deployment and scalability.</li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="py-6 text-center text-xs text-gray-500 dark:text-gray-400">
-      © <span id="year"></span> Pavan Kancharla. Built with ☕ & Tailwind CSS.
-    </footer>
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>Python</li><li>JavaScript</li><li>R</li><li>SQL</li><li>C++</li><li>C</li><li>MATLAB</li><li>PyTorch</li><li>LSTM</li><li>Neural Networks</li><li>Statistical Learning</li><li>Time Series Analysis</li><li>AWS Lambda</li><li>AWS Glue</li><li>Docker</li><li>ECS</li><li>DynamoDB</li><li>API Gateway</li><li>Git</li><li>VS Code</li><li>Jupyter Notebook</li><li>Postman</li><li>Google Colab</li>
+    </ul>
+  </section>
 
-    <script>
-      // Update copyright year automatically
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </body>
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Get In Touch</h2>
+    <p style="max-width: 650px; margin-bottom: 2rem; opacity:0.85">Have an exciting project or just want to say hi? My inbox is always open. Feel free to reach out and let's build something awesome together.</p>
+    <div class="button-group">
+      <button class="cta-btn" onclick="window.location.href='mailto:pkancha3@asu.edu'">
+        <i class="fa-solid fa-envelope"></i> Mail Me
+      </button>
+      <button class="cta-btn" onclick="window.open('https://leetcode.com/', '_blank')"><i class="fa-solid fa-code"></i> LeetCode</button>
+    </div>
+  </section>
+
+  <footer>© 2025 Pavan Kancharla · Built with ❤️ and caffeine</footer>
+
+</body>
 </html>
